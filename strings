@@ -1,0 +1,178 @@
+1)CONCATENATION
+ 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str1="hello";
+	    String str2="world";
+		System.out.println("print the statement:"+str1+" "+str2);
+	}
+}
+
+2)LENGTH METHOD
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str = "kalpana";
+	    int length = str.length();
+		System.out.println("print the statement:"+length);
+	}
+}
+
+3)CHAR AT METHOD
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str = "kalpana";
+	    char ch=str.charAt(3);
+		System.out.println("print the statement:"+ch);
+	}
+}
+
+4)BOOLEAN METHOD
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str1 = "kalpana";
+	    String str2="KALPANA";
+		System.out.println("print the statement:"+ str1.equals(str2));
+	}
+}
+
+5)IGNORE CASE
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str1 = "kalpana";
+	    String str2="KALPANA";
+		System.out.println("check whether it is equal:" + str1.equalsIgnoreCase(str2));
+	}
+}
+
+6)UPPERCASE AND LOWERCASE
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str1 = "kalpana";
+		System.out.println("uppercase:" + str1.toUpperCase());
+	    String str2="KALPANA";
+		System.out.println("lowercase:" + str1.toLowerCase());
+	}
+}
+
+7)INDEXOF
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str = "KALPANA";
+		System.out.println("index of:" + str.indexOf("A"));
+	}
+}
+
+8)LASTINDEXOF
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str = "KALPANA";
+		System.out.println("lastindexof:" + str.lastIndexOf("A"));
+	}
+}
+
+9)STARTS WITH and ENDS WITH
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str = "hi Kalpana";
+		System.out.println("startswith:" + str.startsWith("hi"));
+	    System.out.println("endswith:" + str.endsWith("Kalpana"));
+	}
+}
+
+10)SPLIT METHOD
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str1="    hello WORLD   ";
+	    //String str2="world";
+		System.out.println("print the statement:"+str1.trim());
+	}
+}
+
+11)REVERSE STRING
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str1="hello";
+	    String reversed="";
+	    for(int i=str1.length()- 1; i>=0;i--){
+	        reversed =reversed +str1.charAt(i);
+	    }
+		System.out.println("reverse the string:"+reversed);
+	}
+}
+
+12)number of occurance
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		String str1="kalpanamownika";
+		char ch='a';
+		int count=0;
+		for(int i=0; i<str1.length(); i++) {
+			if(str1.charAt(i)==ch) {
+				count++;
+			}
+		}
+		System.out.println(count);
+	}
+}
+
+13)Replace a character
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str1="hello WORLD";
+		System.out.println("print the statement:"+str1.replace('W','e'));
+	}
+}
+
+14)CHECK IF A STRING IS HAVING ONLY ALPHABETIC/NON-ALPHABETIC CHARACTERS
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		String str1="helloworld123";
+		if(str1.matches("[a-zA-Z]+")) {
+			System.out.println("true");
+		} else {
+			System.out.println("false");
+		}
+	}
+}	
+
