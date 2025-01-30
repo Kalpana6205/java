@@ -1,0 +1,267 @@
+1)insert at end
+
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DLL {
+    Node head, tail;
+
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+
+    public void insertAtend(int data) {
+        Node newNode = new Node(data);
+        if (tail == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data);
+            if (temp.next != null) {
+                System.out.print("->");
+            }
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DLL a = new DLL();
+        System.out.println("before insertatend");
+        a.insert(100);
+        a.display();
+        System.out.println("after insertatend");
+        a.insertAtend(400);
+        a.display();
+    }
+}
+
+2)insert at begin
+
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DLL {
+    Node head, tail;
+
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+
+    public void insertAtBegin(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
+        }
+    }
+
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data);
+            if (temp.next != null) {
+                System.out.print("->");
+            }
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DLL a = new DLL();
+        System.out.println("Before insertAtBegin:");
+        a.insert(100);  // This inserts at the end.
+        a.display();
+        System.out.println("After insertAtBegin:");
+        a.insertAtBegin(400);  // This inserts at the beginning.
+        a.display();
+    }
+}
+
+3)deleteatbegin
+
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DLL {
+    Node head, tail;
+
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+
+    public void deleteAtBegin() {
+        if (head == null) {
+           System.out.println("list is empty");
+           return;
+        } 
+        if(head==tail){
+            head=tail=null;
+            }else {
+            head=head.next;
+            head.prev=null;
+        }
+    }
+
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data);
+            if (temp.next != null) {
+                System.out.print("->");
+            }
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DLL a = new DLL();
+        System.out.println("Before deleteAtBegin:");
+        a.insert(100);
+        a.insert(200);
+        a.insert(300);// This inserts at the end.
+        a.display();
+        System.out.println("After deleteAtBegin:");
+        a.deleteAtBegin();  // This inserts at the beginning.
+        a.display();
+    }
+}
+
+4)deleteatend
+
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DLL {
+    Node head, tail;
+
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+
+    public void deleteAtend() {
+        if (tail == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+        // If there's only one node
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            // Move to the second last node
+            tail = tail.prev;
+            tail.next = null;
+        }
+    }
+
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data);
+            if (temp.next != null) {
+                System.out.print("->");
+            }
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DLL a = new DLL();
+        System.out.println("Before insertAtend:");
+        a.insert(100);
+        a.insert(200);
+        a.insert(300); // This inserts at the end.
+        a.display();
+        
+        System.out.println("After deleteAtend:");
+        a.deleteAtend();  // This deletes the last node.
+        a.display();
+    }
+}
+
