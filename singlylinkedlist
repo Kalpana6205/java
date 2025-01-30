@@ -1,0 +1,173 @@
+1)inserting at end 
+
+import java.lang.*;
+//creating a class node-step 1
+class Node {
+	int data;
+	Node next;
+	//creating a constructor-step 2
+	public Node(int data) {
+		this.data=data;
+		this.next=null;
+	}
+}
+class Linkedlist { //step 4
+	Node head,tail;
+
+//step 5 -inserting Node
+	public void insert(int data) {
+		Node newNode = new Node(data);
+		if(head==null) {
+			head=newNode;
+			tail=newNode;
+		} else {
+			tail.next=newNode;
+			tail=newNode;
+		}
+	}
+	public void display() {
+		Node temp=head;
+		while(temp!=null) {
+			System.out.print(temp.data);
+			if (temp.next != null) {
+				System.out.print("->");
+			}
+			temp=temp.next;
+		}
+	}
+}
+
+	public class Main { //step 3
+		public static void main(String[]args) {
+			Linkedlist link = new Linkedlist();
+			link.insert(100);
+			link.insert(200);
+			link.insert(300);
+			link.insert(400);
+			link.display();
+		}
+	}
+2)insertat begin
+
+import java.lang.*;
+//creating a class node-step 1
+class Node {
+    int data;
+    Node next;
+
+    //creating a constructor-step 2
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class Linkedlist { //step 4
+    Node head, tail;
+
+    //step 5 - Inserting node at the beginning
+    public void insertAtBeginning(int data) {
+        Node newNode = new Node(data);
+        if (head == null) { // If the list is empty
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head; // Make new node point to the current head
+            head = newNode; // Update head to new node
+        }
+    }
+
+    // Inserting node at the end (you had an issue in the original insert method as well)
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+        }
+    }
+
+    // Displaying the list
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data);
+            if (temp.next != null) {
+                System.out.print("->");
+            }
+            temp = temp.next;
+        }
+    }
+}
+
+public class Main { //step 3
+    public static void main(String[] args) {
+        Linkedlist link = new Linkedlist();
+
+        // Inserting nodes at the end
+        link.insert(100);
+        link.insert(200);
+        link.insert(300);
+        link.insert(400);
+        // Inserting at the beginning
+        link.insertAtBeginning(500);  // Inserting 500 at the beginning
+        System.out.println("\nLinked List after inserting 500 at the beginning:");
+        link.display();  
+    }
+}
+
+3)EMPTY
+
+import java.lang.*;
+//creating a class node-step 1
+class Node {
+	int data;
+	Node next;
+	//creating a constructor-step 2
+	public Node(int data) {
+		this.data=data;
+		this.next=null;
+	}
+}
+class Linkedlist { //step 4
+	Node head,tail;
+
+//step 5 -inserting Node
+	public void insert(int data){
+		Node newNode = new Node(data);
+		if(head==null) {
+			head=newNode;
+			tail=newNode;
+		} else {
+			tail.next=newNode;
+			tail=newNode;
+		}
+	}
+	public void display() {
+		Node temp=head;
+		while(temp!=head) {
+			System.out.println(temp.data);
+			temp=temp.next;
+		}
+		if(temp==null){
+		    System.out.println("empty");
+		}
+	}
+	public void insertAtBeginning(int data){
+	    Node newNode = new Node(data);
+	    newNode.next=head;
+	    head=newNode;
+	}
+}
+
+public class Main { //step 3
+	public static void main(String[]args) {
+		Linkedlist link = new Linkedlist();
+		/*link.insert(100);
+		link.insert(200);
+		link.insert(300);*/
+		link.display();
+	}
+}
