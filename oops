@@ -1,0 +1,181 @@
+1)import java.util.*;
+public class Person
+{
+	String name;
+	int age;
+	Person() {
+		name="kalpana";
+		age=20;
+	}
+	void display()
+	{
+		System.out.println("my name is:"+name);
+		System.out.println("my age is:"+age);
+	}
+	public static void main(String[]args)
+	{
+		Person n=new Person();
+		n.display();
+
+}
+}
+
+2)Evenodd
+
+import java.util.*;
+public class Evenodd
+{
+	int num;
+	void EvenOdd(int num) {
+		if (num % 2 == 0) {
+			System.out.println(num + " is even.");
+		} else {
+			System.out.println(num + " is odd.");
+		}
+	}
+    public static void main(String[]args) {
+			Scanner in=new Scanner(System.in);
+			System.out.println("enter a number1:");
+			int n=in.nextInt();
+			Evenodd n1=new Evenodd();
+			n1.EvenOdd(n);
+		}
+	}
+3)Simple interest
+
+import java.util.*;
+public class Main
+{
+    void simple(int p,int r,int t){
+        double n=(p*r*t)/100;
+        System.out.println("n:"+n);
+    }
+	public static void main(String[] args) {
+		Scanner in =new Scanner(System.in);
+		System.out.print("Enter num 1:");
+		int p=in.nextInt();
+		System.out.print("Enter num 2:");
+		int r=in.nextInt();
+		System.out.print("Enter num 3:");
+		int t=in.nextInt();
+		Main num=new Main();
+		num.simple(p,r,t);
+	}
+}
+
+4)
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner in =new Scanner(System.in);
+		int n=in.nextInt();
+	System.out.println(~n);
+	}
+}
+
+5)with arguement without return
+
+import java.util.*;
+public class Main
+{
+    static void sum(int num1,int num2){
+        System.out.println("sum :"+ (num1+num2));
+        sub(num1,num2);
+    }
+     static void sub(int num1,int num2){
+        System.out.println("difference:"+(num1-num2));
+        mult(num1,num2);
+    }
+     static void mult(int num1,int num2){
+        System.out.println("product:"+(num1*num2));
+        
+    }
+    static void user(){
+        Scanner in=new Scanner(System.in);
+        int num1=in.nextInt();
+        int num2=in.nextInt();
+        sum(num1,num2);
+    }
+	public static void main(String[] args){
+	    user();
+	}
+}
+
+6)area of triangle using encapsulation
+import java.util.Scanner;
+
+class Triangle {
+    private double base;
+    private double height;
+
+    public void setDimensions(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    public double calculateArea() {
+        return 0.5 * base * height;
+    }
+}
+
+public class TriangleArea {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Triangle triangle = new Triangle();
+
+       
+        System.out.print("Enter the base of the triangle: ");
+        double base = scanner.nextDouble();
+
+        System.out.print("Enter the height of the triangle: ");
+        double height = scanner.nextDouble();
+
+        triangle.setDimensions(base, height);
+
+        double area = triangle.calculateArea();
+        System.out.println("The area of the triangle is: " + area);
+    }
+}
+      
+7)print odd numbers till 100qa6tvy7	XXXXXXX CDOKW3 TGF,.
+import java.util.*;
+public class Main
+{
+    public static void main(String[]args) {
+			Scanner in=new Scanner(System.in);
+			int n=in.nextInt();
+			if (n % 2 == 0) {
+			    n=n-1;
+			System.out.println(n);
+		} else {
+		    n=n+1;
+			System.out.println(n);
+		}
+	}
+}
+
+ARRAYS
+1)FIND LARGEST AND SMALLEST NUMBER IN AN ARRAY
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int n[]={1,2,3,4,5};
+	    int large=n[0];
+	    int small=n[0];
+	    for (int i=1;i < n.length;i++){
+	        if (n [i]>large){
+	            large=n[i];
+	        }
+	        if (n[i]<small){
+	            small=n[i];
+	        }
+	    }
+	    
+		System.out.println("largest num is:"+large);
+		System.out.println("smallest num is:"+small);
+	}
+}
