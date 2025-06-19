@@ -1,0 +1,126 @@
+class Node{
+   int data;
+   Node next;
+   Node(int data){
+       this.data=data;
+       this.next=null;
+   }
+}
+class Linkedlist{
+    Node head,tail;
+    int size=0;
+    
+public void insertAtbegin(int data){
+    Node newnode=new Node(data);
+    newnode.next=head;
+    head=newnode;
+    if(tail==null){
+        tail=newnode;
+    }
+    size++;
+    }
+public void insertAtend(int data){
+    Node newnode=new Node(data);
+    if(head==null){
+        head=newnode;
+        tail=newnode;
+    }else{
+        tail.next=newnode;
+        tail=newnode;
+    }
+    size++;
+}
+public void insertAtspecificposition(int pos,int data){
+    if (pos < 0 || pos > size) {
+        System.out.println("Invalid position");
+        return;
+        }
+    if (pos == 0) {
+        insertAtbegin(data);
+        return;
+    }
+   Node newnode=new Node(data);
+   Node temp=head;
+   for(int i=0;i<pos-1;i++){
+       temp=temp.next;
+   }
+   newnode.next=temp.next;
+   temp.next=newnode;
+   if(newnode.next==null){
+       tail=newnode;
+   }
+   size++;
+}
+    
+public void deleteAtbegin(){
+    if(size==0)
+    return;
+    head=head.next;
+    size--;
+    if(size==0){
+        tail=null;
+    }
+}
+public void deleteAtend(){
+    if (size==0)
+    return;
+    if(size==1){
+        head=null;
+        tail=null;
+        size--;
+        return;
+    }
+    Node temp=head;
+    for(int i=0;i<size -2;i++){
+        temp=temp.next;
+    }
+    temp.next=null;
+    tail=temp;
+    size--;
+}
+    
+public void deleteAtspecific(int pos){
+    if(pos < 0|| pos > size){
+        return;
+    }
+    if(pos == 0){
+        deleteAtbegin();
+        return;
+    }
+    Node temp=head;
+    for(int i=0;i<pos -1;i++){
+        temp=temp.next;
+    }
+    temp.next=temp.next.next;
+    if(pos == size -1){
+        tail=temp;
+    }
+    size--;
+} 
+public void display(){
+    Node temp=head;
+    while(temp!=null){
+        System.out.println(temp.data);
+        temp=temp.next;
+        }
+    }
+}
+
+class Main{
+    public static void main(String[]args){
+        Linkedlist link=new Linkedlist();
+        link.insertAtend(100);
+        link.insertAtend(200);
+        link.insertAtend(300);
+        link.insertAtend(400);
+        link.insertAtend(500);
+        link.insertAtend(600);
+        link.insertAtbegin(700);
+        link.insertAtspecificposition(3,800);
+        link.deleteAtend();
+        link.deleteAtbegin();
+        link.deleteAtspecific(1);
+        link.display();
+
+    }
+}
