@@ -1,0 +1,152 @@
+import java.util.*;
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class CSLL {
+    Node head;
+    Node tail;
+    int size = 0;
+
+    public void insertAtFist(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+            tail.next = head;
+        } else {
+            newNode.next = head;
+            tail.next = newNode;
+            head = newNode;
+        }
+        size++;
+    }
+
+    public void insertAtEnd(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            insertAtFist(data);
+            return;
+        } else {
+            newNode.next = head;
+            tail.next = newNode;
+            tail = newNode;
+        }
+        size++;
+    }
+
+    public void insertAtSep(int data, int pos) {
+        if (pos < 0 || pos > size) {
+            System.out.println("Invalid position");
+            return;
+        }
+
+        if (pos == 0) {
+            insertAtFist(data);
+        } else if (pos == size) {
+            insertAtEnd(data);
+        } else {
+            Node newNode = new Node(data);
+            Node temp = head;
+            for (int i = 0; i < pos - 1; i++) {
+                temp = temp.next;
+            }
+            newNode.next = temp.next;
+            temp.next = newNode;
+            size++;
+        }
+    }
+
+    public void deleteAtFist() {
+        if (head == null) return;
+
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+            tail.next = head;
+        }
+        size--;
+    }
+
+    public void deleteAtEnd() {
+        if (head == null) return;
+
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            Node temp = head;
+            while (temp.next != tail) {
+                temp = temp.next;
+            }
+            temp.next = head;
+            tail = temp;
+        }
+        size--;
+    }
+
+    public void deleteAtSep(int pos) {
+        if (pos < 0 || pos >= size) {
+            System.out.println("Invalid position");
+            return;
+        }
+
+        if (pos == 0) {
+            deleteAtFist();
+        } else if (pos == size - 1) {
+            deleteAtEnd();
+        } else {
+            Node temp = head;
+            for (int i = 0; i < pos - 1; i++) {
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+            size--;
+        }
+    }
+
+    public void display() {
+        if (head == null) {
+            System.out.println("List is empty.");
+            return;
+        }
+        Node temp = head;
+        do {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        } while (temp != head);
+        System.out.println("(back to head)");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CSLL list = new CSLL();
+
+        list.insertAtFist(10);
+        list.insertAtFist(30);
+        list.insertAtFist(100);
+        list.insertAtFist(200);
+        list.insertAtFist(300);
+        list.insertAtSep(50, 1);
+        list.insertAtEnd(201);
+        list.insertAtEnd(211);
+        list.insertAtSep(110, 4);
+
+        System.out.println("List after insertions:");
+        list.display();
+
+        list.deleteAtFist();
+        list.deleteAtEnd();
+        list.deleteAtSep(2);
+
+        System.out.println("List after deletions:");
+        list.display();
+    }
+}
